@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="topLevelContainer" type="id"/>
+    <item name="coordinatorLayout" type="id" />
+    <item name="fragmentContainer" type="id" />
+</resources>
