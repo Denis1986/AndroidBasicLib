@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".screens.main.MainActivity"
+    tools:showIn="@layout/activity_persistent_properties">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/filePropertyLabelView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small"
+            android:text="@string/persistent_property_saved_to_file"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/filePropertyEdit"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/filePropertyEdit"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:hint="@string/value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/filePropertyLabelView"
+            tools:text="16" />
+
+        <Button
+            android:id="@+id/reloadFilePropertyButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:text="@string/reload"
+            app:layout_constraintEnd_toStartOf="@id/updateFilePropertyButton"
+            app:layout_constraintTop_toBottomOf="@id/filePropertyLabelView" />
+
+        <Button
+            android:id="@+id/updateFilePropertyButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filePropertyLabelView" />
+
+        <TextView
+            android:id="@+id/preferencesPropertyLabelView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_extra_large"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small"
+            android:text="@string/persistent_property_saved_to_preferences"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/preferencesPropertyEdit"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reloadFilePropertyButton" />
+
+        <EditText
+            android:id="@+id/preferencesPropertyEdit"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:hint="@string/value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/preferencesPropertyLabelView"
+            tools:text="16" />
+
+        <Button
+            android:id="@+id/reloadPreferencesPropertyButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:text="@string/reload"
+            app:layout_constraintEnd_toStartOf="@id/updatePreferencesPropertyButton"
+            app:layout_constraintTop_toBottomOf="@id/preferencesPropertyLabelView" />
+
+        <Button
+            android:id="@+id/updatePreferencesPropertyButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/preferencesPropertyLabelView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
