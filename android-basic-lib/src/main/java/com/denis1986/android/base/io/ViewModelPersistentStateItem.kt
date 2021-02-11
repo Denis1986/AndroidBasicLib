@@ -9,7 +9,7 @@ class ViewModelPersistentStateItem<T> (private val savedStateHandle: SavedStateH
                                        private val key: String,
                                        private val initializer: Initializer<T>? = null
 ) {
-    fun set(newValue: T) = savedStateHandle.set(key, newValue)
+    fun set(newValue: T?) = savedStateHandle.set(key, newValue)
 
     fun get(): T? = savedStateHandle.get(key) ?: initializer?.invoke()
 
