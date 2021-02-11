@@ -13,6 +13,7 @@ typealias Initializer<T> = () -> T
  */
 open class PersistentProperty<T>(private val saver: Saver<T>,
                             private val executor: CoroutineDispatcher,
+                            private val persistValueFromInitializer: Boolean = false,
                             private val initializer: Initializer<T>? = null
 ) {
     private val synchronizedProperty = SynchronizedValue<T>()
@@ -40,6 +41,21 @@ open class PersistentProperty<T>(private val saver: Saver<T>,
             action.invoke(synchronizedProperty.value)
             saver.save(synchronizedProperty.value)
         }
+    }
+
+    /**
+     * Persists changes only if the specified *action* returns true.
+     */
+    fun updateIfNecessary(action: (T?) -> Boolean): Boolean {
+        var isUpdated = false
+        synchronizedProperty.update {
+            initializeIfNecessary()
+            isUpdated = action.invoke(synchronizedProperty.value)
+            if (isUpdated) {
+                saver.save(synchronizedProperty.value)
+            }
+        }
+        return isUpdated
     }
 
     suspend fun updateAsync(action: (T?) -> Unit) {
