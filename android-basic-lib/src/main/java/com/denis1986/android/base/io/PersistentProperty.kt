@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import kotlin.concurrent.write
 
-typealias Initializer<T> = () -> T
+typealias Initializer<T> = () -> T?
 
 /** Encapsulates logic of reading and saving value to persistent storage. Access is synchronized.
  *
@@ -117,7 +117,13 @@ open class PersistentProperty<T>(private val saver: Saver<T>,
     // Note: Access to synchronizedProperty must be synchronized from outside.
     private fun initializeIfNecessary() {
         if (synchronizedProperty.value == null) {
-            synchronizedProperty.value = saver.read() ?: initializer?.invoke()
+            synchronizedProperty.value = saver.read()
+            if (synchronizedProperty.value == null) {
+                synchronizedProperty.value = initializer?.invoke()
+                if (synchronizedProperty.value != null && persistValueFromInitializer) {
+                    saver.save(synchronizedProperty.value)
+                }
+            }
         }
     }
 }
