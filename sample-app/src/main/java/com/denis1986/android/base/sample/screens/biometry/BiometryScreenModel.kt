@@ -5,6 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import com.denis1986.android.base.io.ViewModelPersistentStateItem
 import com.denis1986.android.base.biometry.BiometricPromptParams
 import com.denis1986.android.base.biometry.BiometricsContainerScreenModel
+import com.denis1986.android.base.io.ViewModelPersistentStateEnumItem
 import com.denis1986.android.base.mvvm.MutableLiveDataWrapper
 import com.denis1986.android.base.sample.R
 
@@ -54,8 +55,23 @@ class BiometryScreenModel(app: Application,
 
         val isLoginPerformed = ViewModelPersistentStateItem(savedStateHandle, KEY_IS_LOGIN_PERFORMED) { false }
 
+        // As an alternative for isLoginPerformed we could use persistent enum value, saved via ViewModelPersistentStateEnumItem.
+        // This variable is not used in code, it is simply an example of ViewModelPersistentStateEnumItem initialization.
+        val loginState = ViewModelPersistentStateEnumItem(
+            savedStateHandle,
+            KEY_LOGIN_STATE,
+            allValuesProvider = { LoginState.values() },
+            initializer = { LoginState.NotLoggedIn }
+        )
+
         companion object {
             private const val KEY_IS_LOGIN_PERFORMED = "BiometryScreenModel:isLoginPerformed"
+            private const val KEY_LOGIN_STATE = "BiometryScreenModel:loginState"
         }
+    }
+
+    private enum class LoginState {
+        LoggedIn,
+        NotLoggedIn
     }
 }
