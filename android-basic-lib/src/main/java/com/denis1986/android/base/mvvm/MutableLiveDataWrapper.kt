@@ -11,9 +11,10 @@ import androidx.lifecycle.Observer
  *
  * Created by Denis Druzhinin on 10.08.2020.
  */
-class MutableLiveDataWrapper<T> {
+class MutableLiveDataWrapper<T>(initialValue: T? = null) {
 
-    private val value = MutableLiveData<T>()
+    // If initial null value is set for MutableLiveData, it would be propagated to listeners.
+    private val value = if (initialValue == null) MutableLiveData<T>() else MutableLiveData<T>(initialValue)
 
     fun get(): LiveData<T> = value
 
