@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
  */
 class RetryScreenModel(app: Application) : SampleBasicViewModel(app) {
 
-    private val connectionManager = getAppComponent().provideConnectionManager()
+    private val networkStateManager = getAppComponent().provideNetworkStateManager()
     private val executors = getAppComponent().provideAppExecutors()
     private val retryPolicy = getAppComponent().provideRetryPolicy()
 
@@ -25,7 +25,7 @@ class RetryScreenModel(app: Application) : SampleBasicViewModel(app) {
     val log = MediatorLiveDataWrapper<String>()
 
     init {
-        log.asMediator().addSource(connectionManager.connectionState.get()) { connectionState ->
+        log.asMediator().addSource(networkStateManager.networkState.get()) { connectionState ->
             if (!connectionState.hasConnection)
                 return@addSource
 

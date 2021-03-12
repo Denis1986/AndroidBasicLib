@@ -13,10 +13,10 @@ class FakeDataSource(val retryParam: RetryParam) {
 
     private var currentAttemptCount = 0
 
-    private val connectionManager = SampleApplication.instance.appComponent.provideConnectionManager()
+    private val networkStateManager = SampleApplication.instance.appComponent.provideNetworkStateManager()
 
     fun interactWithBackend(): NetworkResponse<Unit> {
-        if (retryParam.takeIntoAccountNetworkState && !connectionManager.connectionState.get().value?.hasConnection.nullToFalse())
+        if (retryParam.takeIntoAccountNetworkState && !networkStateManager.networkState.get().value?.hasConnection.nullToFalse())
             return NetworkResponse.error(UnknownHostException())
 
         currentAttemptCount++

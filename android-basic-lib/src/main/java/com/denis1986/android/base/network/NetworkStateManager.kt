@@ -15,9 +15,9 @@ import com.denis1986.android.base.network.data.NetworkState
 /** Note: this class can work only if app has ACCESS_NETWORK_STATE permission, otherwise [isEnabled] property will be false.
  * Created by Denis Druzhinin on 17.02.2020.
  */
-class ConnectionManager constructor(context: Context) {
+class NetworkStateManager constructor(context: Context) {
     @Suppress("RemoveExplicitTypeArguments")
-    val connectionState = MutableLiveDataWrapper<NetworkState>()
+    val networkState = MutableLiveDataWrapper<NetworkState>()
     private val availableCellularNetworkSet = HashSet<Long>()
     private val availableWifiNetworkSet = HashSet<Long>()
 
@@ -60,7 +60,7 @@ class ConnectionManager constructor(context: Context) {
     }
 
     private fun updateConnectionAvailableState() {
-        connectionState.asMutable().postValue(when {
+        networkState.asMutable().postValue(when {
             availableWifiNetworkSet.size > 0 -> NetworkState.Wifi
             availableCellularNetworkSet.size > 0 -> NetworkState.CellularOnly
             else -> NetworkState.NotConnected

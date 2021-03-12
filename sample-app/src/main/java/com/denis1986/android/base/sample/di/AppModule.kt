@@ -2,7 +2,7 @@ package com.denis1986.android.base.sample.di
 
 import android.app.Application
 import android.content.Context
-import com.denis1986.android.base.network.ConnectionManager
+import com.denis1986.android.base.network.NetworkStateManager
 import com.denis1986.android.base.sample.base.RetryPolicy
 import com.denis1986.android.base.sample.service.AppPreferences
 import com.denis1986.android.base.sample.service.FilePathProvider
@@ -39,7 +39,7 @@ class AppModule(private val application: Application) {
 
     @Provides
     @Singleton
-    fun provideConnectionManager(): ConnectionManager = ConnectionManager(context)
+    fun provideNetworkStateManager(): NetworkStateManager = NetworkStateManager(context)
 
     @Provides
     @Reusable

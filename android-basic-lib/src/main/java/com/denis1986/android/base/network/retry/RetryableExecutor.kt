@@ -5,7 +5,7 @@ import kotlinx.coroutines.*
 /** Executor, which implements retry mechanism. This mechanism is invoked from derived classes.
  *
  * Usually retry mechanism should not be used, if network related exception occurred.
- * Consider listening for [com.denis1986.android.base.network.ConnectionManager]'s connectionState instead.
+ * Consider listening for [com.denis1986.android.base.network.NetworkStateManager]'s connectionState instead.
  *
  * Created by Denis Druzhinin on 31.08.2020.
  */

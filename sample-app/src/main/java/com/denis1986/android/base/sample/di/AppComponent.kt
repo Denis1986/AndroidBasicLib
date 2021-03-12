@@ -1,6 +1,6 @@
 package com.denis1986.android.base.sample.di
 
-import com.denis1986.android.base.network.ConnectionManager
+import com.denis1986.android.base.network.NetworkStateManager
 import com.denis1986.android.base.sample.base.RetryPolicy
 import com.denis1986.android.base.sample.service.AppPreferences
 import com.denis1986.android.base.sample.service.FilePathProvider
@@ -18,6 +18,6 @@ interface AppComponent {
     fun provideAppPreferences(): AppPreferences
     fun provideAppExecutors(): AppExecutors
     fun provideFilePathProvider(): FilePathProvider
-    fun provideConnectionManager(): ConnectionManager
+    fun provideNetworkStateManager(): NetworkStateManager
     fun provideRetryPolicy(): RetryPolicy
 }

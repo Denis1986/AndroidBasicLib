@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_biometry.*
 import kotlinx.android.synthetic.main.content_retry.*
 
 /** Demonstrates how to create and use a subclass of [com.denis1986.android.base.network.retry.RetryableExecutor] and how to take into account connection state with the help of
- * [com.denis1986.android.base.network.ConnectionManager].
+ * [com.denis1986.android.base.network.NetworkStateManager].
  *
  * Created by Denis Druzhinin on 08.01.2021.
  */
