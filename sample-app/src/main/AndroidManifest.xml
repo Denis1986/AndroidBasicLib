@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.denis1986.android.base.sample">
+    package="io.github.denis1986.android.base.sample">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:name="com.denis1986.android.base.sample.SampleApplication"
+        android:name="io.github.denis1986.android.base.sample.SampleApplication"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidBaseSample">
         <activity
-            android:name="com.denis1986.android.base.sample.screens.main.MainActivity"
+            android:name="io.github.denis1986.android.base.sample.screens.main.MainActivity"
             android:label="AndroidBase Library Sample"
             android:theme="@style/Theme.AndroidBaseSample.NoActionBar">
 
@@ -25,19 +25,19 @@
 
         </activity>
 
-        <activity android:name="com.denis1986.android.base.sample.screens.persistent.PersistentPropertiesActivity"
+        <activity android:name="io.github.denis1986.android.base.sample.screens.persistent.PersistentPropertiesActivity"
             android:label="@string/title_persistent_properties"
             android:theme="@style/Theme.AndroidBaseSample.NoActionBar"/>
 
-        <activity android:name="com.denis1986.android.base.sample.screens.biometry.BiometryActivity"
+        <activity android:name="io.github.denis1986.android.base.sample.screens.biometry.BiometryActivity"
             android:label="@string/biometry"
             android:theme="@style/Theme.AndroidBaseSample.NoActionBar"/>
 
-        <activity android:name="com.denis1986.android.base.sample.screens.list.UserListActivity"
+        <activity android:name="io.github.denis1986.android.base.sample.screens.list.UserListActivity"
             android:label="@string/title_user_list"
             android:theme="@style/Theme.AndroidBaseSample.NoActionBar"/>
 
-        <activity android:name="com.denis1986.android.base.sample.screens.retry.RetryActivity"
+        <activity android:name="io.github.denis1986.android.base.sample.screens.retry.RetryActivity"
             android:label="@string/title_retry"
             android:theme="@style/Theme.AndroidBaseSample.NoActionBar"/>
     </application>

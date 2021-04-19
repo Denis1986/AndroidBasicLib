@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.denis1986.android.base.sample"
+        applicationId "io.github.denis1986.android.base.sample"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
