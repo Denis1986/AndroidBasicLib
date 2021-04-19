@@ -3,22 +3,10 @@ package io.github.denis1986.android.base.network.data
 /**
  * Created by denis.druzhinin on 25.07.2019.
  */
-open class NetworkResponse<T>: ThrowableContainer {
-    var value: T? = null
+open class NetworkResponse<T>: ExecutionResult<T>() {
+
+    @Volatile
     var code: Int? = null
-    var isSuccessful: Boolean = true
-
-    override var throwable: Throwable? = null
-        set(value) {
-            if (value != null) {
-                isSuccessful = false
-            }
-            field = value
-        }
-
-    fun isFilled(): Boolean {
-        return (isSuccessful && value != null)
-    }
 
     override fun toString(): String {
         return "NetworkResponse(value=$value, code=$code, isSuccessful=$isSuccessful, throwable=$throwable)"
@@ -42,6 +30,10 @@ open class NetworkResponse<T>: ThrowableContainer {
             return NetworkResponse<T>().apply {
                 throwable = result.throwable
                 value = result.value
+
+                if (result is NetworkResponse<*>) {
+                    code = result.code
+                }
             }
         }
 
