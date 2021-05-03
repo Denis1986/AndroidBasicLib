@@ -2,9 +2,13 @@
 Library contains different classes and interfaces for common problems solving, which a developer faces while creating an Android app.
 
 ## Installation
-Currently the library is not uploaded to any Maven repository. You can add the library to your repository as a Git submodule and then create a dependency to the library module. 
 
-If you like the library and would like to declare remote Gradle dependency to it, let me know and I'll think about uploading it to a Maven repository. 
+The latest release is available on [Maven Central](https://search.maven.org/artifact/io.github.denis1986/android-base).
+```groovy
+implementation "io.github.denis1986:android-base:1.0.0"
+```
+
+As an alternative, you can add the library to your repository as a Git submodule and then create a dependency to the library module. 
 
 ## Structure
 There are 2 modules in the project: `android-basic-lib` and `sample-app`. The former is the library itself and the latter is the sample app.
